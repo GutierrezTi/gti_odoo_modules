@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_move_form_inherit_l10n_es_autonomo" model="ir.ui.view">
+        <field name="name">account.move.form.inherit.autonomo</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group" position="before">
+                <div class="alert alert-info d-flex align-items-center justify-content-between p-3 mb-4"
+                     role="alert"
+                     invisible="move_type not in ('in_invoice', 'in_refund')">
+                    <div class="d-flex align-items-center">
+                        <i class="fa fa-info-circle me-3 fs-3"
+                           title="FiscalSummary"
+                           aria-label="Fiscal Summary Icon"/>
+                        <div>
+                            <strong class="d-block">Freelancer Fiscal Summary</strong>
+                            <span class="text-muted small">Real-time calculation based on assigned deducibility profiles.</span>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-5">
+                        <div class="text-center border-start ps-4">
+                            <span class="d-block small text-uppercase fw-bold text-muted mb-1">Deductible VAT</span>
+                            <field name="l10n_es_autonomo_vat_deductible"
+                                   class="h4 mb-0 text-primary fw-bold"
+                                   nolabel="1"/>
+                        </div>
+                        <div class="text-center border-start ps-4">
+                            <span class="d-block small text-uppercase fw-bold text-muted mb-1">Net Expense</span>
+                            <field name="l10n_es_autonomo_expense_total"
+                                   class="h4 mb-0 text-success fw-bold"
+                                   nolabel="1"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']/list" position="attributes">
+                <attribute name="decoration-info">deducibility_profile_id != False</attribute>
+            </xpath>
+            <xpath expr="//field[@name='invoice_line_ids']/list/field[@name='tax_ids']" position="after">
+                <field name="deducibility_profile_id"
+                       optional="show"
+                       string="Deduction Profile"
+                       options="{'no_create': True, 'no_open': True}"
+                       decoration-bf="deducibility_profile_id != False"/>
+            </xpath>
+            <xpath expr="//page[@name='other_info']" position="before">
+                <page string="Fiscal Adjustment"
+                      name="fiscal_adjustment"
+                      invisible="move_type not in ('in_invoice', 'in_refund')">
+                    <group string="Detailed Tax Breakdown per Line">
+                        <field name="invoice_line_ids" nolabel="1" readonly="1">
+                            <list create="0" delete="0" edit="0">
+                                <field name="product_id" />
+                                <field name="price_subtotal" string="Base Amount" sum="Total Base" />
+                                <field name="deducibility_profile_id" string="Profile" />
+                                <field name="l10n_es_autonomo_raw_vat"
+                                       string="Original VAT"
+                                       decoration-muted="1"
+                                       sum="Total Orig. VAT" />
+                                <field name="l10n_es_autonomo_nd_vat"
+                                       string="Non-Ded. VAT"
+                                       decoration-danger="l10n_es_autonomo_nd_vat > 0"
+                                       decoration-bf="l10n_es_autonomo_nd_vat > 0"
+                                       sum="Total ND VAT" />
+                                <field name="balance"
+                                       string="Final Fiscal Expense"
+                                       decoration-success="1"
+                                       decoration-bf="1"
+                                       sum="Total Expense" />
+                            </list>
+                        </field>
+                    </group>
+                    <group string="Generated Journal Items">
+                        <field name="line_ids" nolabel="1" readonly="1">
+                            <list create="0" delete="0" edit="0" decoration-muted="display_type in ('line_section', 'line_note')">
+                                <field name="account_id" />
+                                <field name="name" />
+                                <field name="tax_base_amount" string="Base Ref." optional="show" decoration-bf="tax_line_id != False" />
+                                <field name="debit" sum="Total Debit" />
+                                <field name="credit" sum="Total Credit" />
+                                <field name="tax_line_id" optional="show" string="Tax Tag" />
+                            </list>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

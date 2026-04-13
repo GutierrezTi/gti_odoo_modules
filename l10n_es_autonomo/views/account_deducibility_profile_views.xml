@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_account_deducibility_profile_form" model="ir.ui.view">
+        <field name="name">account.deducibility.profile.form</field>
+        <field name="model">account.deducibility.profile</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Fuel 50%"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Configuration">
+                            <field name="vat_ratio" widget="percentage"/>
+                            <field name="expense_ratio" widget="percentage"/>
+                        </group>
+                        <group string="Accounting Strategy">
+                            <field name="reclassification_strategy"/>
+                            <field
+                                    name="specific_account_id"
+                                    invisible="reclassification_strategy != 'specific_account'"
+                                    required="reclassification_strategy == 'specific_account'"
+                            />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_account_deducibility_profile_list" model="ir.ui.view">
+        <field name="name">account.deducibility.profile.list</field>
+        <field name="model">account.deducibility.profile</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="vat_ratio"/>
+                <field name="expense_ratio"/>
+                <field name="reclassification_strategy"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_account_deducibility_profile" model="ir.actions.act_window">
+        <field name="name">Deducibility Profiles</field>
+        <field name="res_model">account.deducibility.profile</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="menu_l10n_es_autonomo_root" name="Autónomo"
+              parent="account.menu_finance_configuration" sequence="20"/>
+    <menuitem
+            id="menu_account_deducibility_profile"
+            action="action_account_deducibility_profile"
+            parent="menu_l10n_es_autonomo_root"
+    />
+</odoo>

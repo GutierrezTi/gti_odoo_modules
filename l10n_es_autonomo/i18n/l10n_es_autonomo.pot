@@ -1,0 +1,329 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_es_autonomo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-12 18:55+0000\n"
+"PO-Revision-Date: 2026-04-12 18:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid ""
+"<i class=\"fa fa-info-circle me-3 fs-3\" title=\"FiscalSummary\" aria-"
+"label=\"Fiscal Summary Icon\"/>"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid ""
+"<span class=\"d-block small text-uppercase fw-bold text-muted "
+"mb-1\">Deductible VAT</span>"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid ""
+"<span class=\"d-block small text-uppercase fw-bold text-muted mb-1\">Net "
+"Expense</span>"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid ""
+"<strong class=\"d-block\">Freelancer Fiscal Summary</strong>\n"
+"                            <span class=\"text-muted small\">Real-time calculation based on assigned deducibility profiles.</span>"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_account_deducibility_profile_form
+msgid "Accounting Strategy"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_deducibility_profile__active
+msgid "Active"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields.selection,name:l10n_es_autonomo.selection__account_deducibility_profile__reclassification_strategy__base_line
+msgid "Add to Base Line (Higher Expense/Asset)"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.ui.menu,name:l10n_es_autonomo.menu_l10n_es_autonomo_root
+msgid "Autónomo"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid "Base Amount"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid "Base Ref."
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_account_deducibility_profile_form
+msgid "Configuration"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model,name:l10n_es_autonomo.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_deducibility_profile__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_deducibility_profile__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.actions.act_window,name:l10n_es_autonomo.action_account_deducibility_profile
+#: model:ir.ui.menu,name:l10n_es_autonomo.menu_account_deducibility_profile
+msgid "Deducibility Profiles"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_bank_statement_line__l10n_es_autonomo_vat_deductible
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_move__l10n_es_autonomo_vat_deductible
+msgid "Deductible VAT"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_move_line__deducibility_profile_id
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.product_template_form_view_inherit_l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid "Deduction Profile"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_res_partner__l10n_es_autonomo_profile_id
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_res_users__l10n_es_autonomo_profile_id
+msgid "Default Deducibility Profile"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid "Detailed Tax Breakdown per Line"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_deducibility_profile__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_deducibility_profile__expense_ratio
+msgid "Expense Deductible %"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid "Final Fiscal Expense"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid "Fiscal Adjustment"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid "Generated Journal Items"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_deducibility_profile__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_product_product__l10n_es_autonomo_is_regulated
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_product_template__l10n_es_autonomo_is_regulated
+msgid "Is Partially Deductible"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model,name:l10n_es_autonomo.model_account_move
+msgid "Journal Entry"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model,name:l10n_es_autonomo.model_account_move_line
+msgid "Journal Item"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_deducibility_profile__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_deducibility_profile__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields.selection,name:l10n_es_autonomo.selection__account_deducibility_profile__reclassification_strategy__specific_account
+msgid "Move to Specific Account"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_deducibility_profile__name
+msgid "Name"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid "Non-Ded. VAT"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_move_line__l10n_es_autonomo_nd_vat
+msgid "Non-deductible VAT"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#. odoo-python
+#: code:addons/l10n_es_autonomo/models/account_move.py:0
+msgid "Non-deductible VAT: %s"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_move_line__l10n_es_autonomo_raw_vat
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid "Original VAT"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.product_template_form_view_inherit_l10n_es_autonomo
+msgid "Partial Deducibility"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,help:l10n_es_autonomo.field_account_deducibility_profile__vat_ratio
+msgid "Percentage of VAT that is legally deductible."
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,help:l10n_es_autonomo.field_account_deducibility_profile__expense_ratio
+msgid "Percentage of the expense that is deductible for IRPF."
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,help:l10n_es_autonomo.field_account_move_line__l10n_es_autonomo_nd_vat
+msgid "Portion of VAT reclassified as higher expense/asset value."
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model,name:l10n_es_autonomo.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_product_product__l10n_es_autonomo_profile_id
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_product_template__l10n_es_autonomo_profile_id
+msgid "Product Deducibility Profile"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid "Profile"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_partner_form_inherit_l10n_es_autonomo
+msgid "Select deducibility profile..."
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model,name:l10n_es_autonomo.model_account_deducibility_profile
+msgid "Spanish Autónomo Deducibility Profile"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.product_template_form_view_inherit_l10n_es_autonomo
+msgid "Spanish Freelancer Deducibility"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_deducibility_profile__specific_account_id
+msgid "Specific Account"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid "Tax Tag"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid "Total Base"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid "Total Credit"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid "Total Debit"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid "Total Expense"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_bank_statement_line__l10n_es_autonomo_expense_total
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_move__l10n_es_autonomo_expense_total
+msgid "Total Fiscal Expense"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid "Total ND VAT"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_move_form_inherit_l10n_es_autonomo
+msgid "Total Orig. VAT"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,help:l10n_es_autonomo.field_account_move_line__l10n_es_autonomo_raw_vat
+msgid "Total VAT amount before any deduction adjustment."
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_deducibility_profile__vat_ratio
+msgid "VAT Deductible %"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model:ir.model.fields,field_description:l10n_es_autonomo.field_account_deducibility_profile__reclassification_strategy
+msgid "VAT Reclassification Strategy"
+msgstr ""
+
+#. module: l10n_es_autonomo
+#: model_terms:ir.ui.view,arch_db:l10n_es_autonomo.view_account_deducibility_profile_form
+msgid "e.g. Fuel 50%"
+msgstr ""

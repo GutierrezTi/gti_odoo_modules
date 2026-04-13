@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_partner_form_inherit_l10n_es_autonomo" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.l10n.es.autonomo</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="account.view_partner_property_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='property_account_payable_id']" position="after">
+                <field name="l10n_es_autonomo_profile_id"
+                       string="Perfil de Deducción"
+                       options="{'no_create': True, 'no_open': True}"
+                       placeholder="Seleccione perfil de autónomo..." />
+            </xpath>
+        </field>
+    </record>
+</odoo>

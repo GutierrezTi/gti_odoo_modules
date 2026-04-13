@@ -1,2 +1,2 @@
 # gti_odoo_modules
-Odoo Modules
+l10n_es_autonomo

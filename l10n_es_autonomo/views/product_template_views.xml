@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="product_template_form_view_inherit_l10n_es_autonomo" model="ir.ui.view">
+        <field name="name">product.template.form.inherit.l10n.es.autonomo</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='purchase']" position="inside">
+                <group name="l10n_es_autonomo_deducibility" string="Spanish Freelancer Deducibility">
+                    <field name="l10n_es_autonomo_is_regulated" string="Partial Deducibility" />
+                    <field name="l10n_es_autonomo_profile_id"
+                           string="Deduction Profile"
+                           invisible="not l10n_es_autonomo_is_regulated"
+                           required="l10n_es_autonomo_is_regulated"
+                           options="{'no_create': True, 'no_open': True}" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
