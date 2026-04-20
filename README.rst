@@ -23,7 +23,7 @@ Tabla de Contenidos de Módulos
      - Descripción Funcional
    * - `l10n_es_autonomo`
      - Gestión de deducibilidad parcial de IVA e IRPF (Gastos afectos).
-   * - `account_irpf_audit`
+   * - `l10n_es_irpf_audit_reconciliation`
      - Auditoría y conciliación de retenciones IRPF con datos de la AEAT.
 
 Descripción de los Módulos
