@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_account_irpf_import_wizard_form" model="ir.ui.view">
+        <field name="name">account.irpf.import.wizard.form</field>
+        <field name="model">account.irpf.import.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Import AEAT Data">
+                <div class="alert alert-info" role="alert">
+                    Please upload a CSV file with two columns: <strong>VAT (NIF)</strong> and <strong>Amount</strong>.
+                    Ensure the file uses a semicolon (;) as a separator.
+                </div>
+                <group>
+                    <field name="data_file" filename="filename" widget="File"/>
+                    <field name="filename" invisible="1"/>
+                    <field name="audit_id" invisible="1"/>
+                </group>
+                <footer>
+                    <button name="action_import" string="Import" type="object" class="btn-primary" data-hotkey="q"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_account_irpf_import_wizard" model="ir.actions.act_window">
+        <field name="name">Import AEAT Data</field>
+        <field name="res_model">account.irpf.import.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

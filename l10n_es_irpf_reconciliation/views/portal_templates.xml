@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="disagree_form" name="IRPF Discrepancy Reason Form">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container mt-5 mb-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6">
+                            <div class="card shadow border-0">
+                                <div class="card-header bg-danger text-white p-3">
+                                    <h4 class="mb-0">
+                                        <i class="fa fa-exclamation-triangle me-2" />
+                                        Report a Discrepancy
+                                    </h4>
+                                </div>
+                                <div class="card-body p-4">
+                                    <p class="text-muted">
+                                        Client:
+                                        <strong>
+                                            <t t-out="line.partner_id.name" />
+                                        </strong>
+                                    </p>
+                                    <p>Please indicate the reason why you disagree with the recorded IRPF retentions:
+                                    </p>
+
+                                    <form
+                                        method="post"
+                                        t-attf-action="/irpf/audit/response/{{line.id}}/{{line.access_token}}?action=disagree"
+                                    >
+                                        <input
+                                            type="hidden"
+                                            name="csrf_token"
+                                            t-att-value="request.csrf_token()"
+                                        />
+                                        <div class="mb-3">
+                                            <label
+                                                for="reason"
+                                                class="form-label"
+                                            >Detailed Reason</label>
+                                            <textarea
+                                                name="reason"
+                                                id="reason"
+                                                class="form-control"
+                                                rows="5"
+                                                required="required"
+                                                placeholder="E.g., Missing invoice F2025/001 or incorrect base amount..."
+                                            />
+                                        </div>
+                                        <div class="d-grid gap-2">
+                                            <button
+                                                type="submit"
+                                                class="btn btn-danger btn-lg"
+                                            >
+                                                Submit Disagreement
+                                            </button>
+                                            <a
+                                                href="/"
+                                                class="btn btn-link text-muted"
+                                            >Cancel and return</a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="response_thanks" name="IRPF Response Success">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container mt-5 mb-5">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8 text-center">
+                            <t t-if="status == 'agreed'">
+                                <div class="card border-success shadow-sm">
+                                    <div class="card-body p-5">
+                                        <i
+                                            class="fa fa-check-circle fa-5x text-success mb-4"
+                                        />
+                                        <h2 class="text-success">Thank You!</h2>
+                                        <p class="lead">Your agreement has been successfully registered in our system.
+                                        </p>
+                                        <p class="text-muted">We appreciate your confirmation for this fiscal period.
+                                        </p>
+                                    </div>
+                                </div>
+                            </t>
+                            <t t-if="status == 'disagreed'">
+                                <div class="card border-warning shadow-sm">
+                                    <div class="card-body p-5">
+                                        <i
+                                            class="fa fa-info-circle fa-5x text-warning mb-4"
+                                        />
+                                        <h2 class="text-warning">Feedback Received</h2>
+                                        <p class="lead">We have recorded your discrepancy report.</p>
+                                        <p class="text-muted">Our administration team will review the details and
+                                            contact you if necessary.
+                                        </p>
+                                    </div>
+                                </div>
+                            </t>
+                            <div class="mt-4">
+                                <a
+                                    href="/"
+                                    class="btn btn-outline-primary"
+                                >Return to Website</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

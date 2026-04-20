@@ -1,0 +1,920 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_es_irpf_reconciliation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-19 23:37+0000\n"
+"PO-Revision-Date: 2026-04-19 23:37+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_es_irpf_reconciliation
+#. odoo-python
+#: code:addons/l10n_es_irpf_reconciliation/models/account_irpf_audit.py:0
+msgid ""
+"%s emails have been added to the queue. They will be sent automatically."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#. odoo-python
+#: code:addons/l10n_es_irpf_reconciliation/wizard/account_irpf_import_wizard.py:0
+msgid "%s records updated from the AEAT file."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.actions.report,print_report_name:l10n_es_irpf_reconciliation.action_report_irpf_details
+msgid ""
+"'IRPF_Details_%s_%s' % (object.partner_id.name, object.audit_id.fiscal_year)"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields.selection,name:l10n_es_irpf_reconciliation.selection__account_irpf_audit__period__1q
+msgid "1Q (Jan - Mar)"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields.selection,name:l10n_es_irpf_reconciliation.selection__account_irpf_audit__period__2q
+msgid "2Q (Apr - Jun)"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields.selection,name:l10n_es_irpf_reconciliation.selection__account_irpf_audit__period__3q
+msgid "3Q (Jul - Sep)"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields.selection,name:l10n_es_irpf_reconciliation.selection__account_irpf_audit__period__4q
+msgid "4Q (Oct - Dec)"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.report_irpf_details_template
+msgid ""
+"<br/>\n"
+"                                <strong>Period:</strong>"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.report_irpf_details_template
+msgid ""
+"<br/>\n"
+"                                <strong>VAT:</strong>"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:mail.template,body_html:l10n_es_irpf_reconciliation.email_template_irpf_annual_discrepancy
+msgid ""
+"<div style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                Hello <t t-out=\"object.partner_id.name or 'Administration Team'\"/>,\n"
+"                <br/><br/>\n"
+"\n"
+"                <t t-if=\"object.difference != 0\">\n"
+"                    When cross-referencing the fiscal data for the <strong>fiscal year <t t-out=\"object.audit_id.fiscal_year\"/></strong> with the Tax Agency (AEAT), we detected a discrepancy in the retentions declared in our favor.\n"
+"                    <br/><br/>\n"
+"                    According to our immutable billing records, the amounts are:\n"
+"                    <br/>\n"
+"                    <ul>\n"
+"                        <li>\n"
+"                            <strong>Withheld IRPF (Odoo):</strong>\n"
+"                            <t t-out=\"format_amount(object.amount_odoo, object.currency_id)\"/>\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            <strong>Declared IRPF (AEAT):</strong>\n"
+"                            <t t-out=\"format_amount(object.amount_aeat, object.currency_id)\"/>\n"
+"                        </li>\n"
+"                        <li>\n"
+"                            <strong style=\"color: red;\">Difference to regularize:</strong>\n"
+"                            <t t-out=\"format_amount(object.difference, object.currency_id)\"/>\n"
+"                        </li>\n"
+"                    </ul>\n"
+"                    We need your advisory team to review this mismatch and file a complementary declaration.\n"
+"                </t>\n"
+"\n"
+"                <t t-else=\"\">\n"
+"                    As part of our annual fiscal closing procedures for the <strong>fiscal year <t t-out=\"object.audit_id.fiscal_year\"/></strong>, we are contacting you to request the formal confirmation of the IRPF retentions.\n"
+"                    <br/><br/>\n"
+"                    According to our records, the amounts perfectly match the data declared to the Tax Agency (AEAT):\n"
+"                    <br/>\n"
+"                    <ul>\n"
+"                        <li>\n"
+"                            <strong>Total IRPF Withheld:</strong>\n"
+"                            <t t-out=\"format_amount(object.amount_odoo, object.currency_id)\"/>\n"
+"                        </li>\n"
+"                    </ul>\n"
+"                    Everything seems to be correct, but we kindly ask you to formally validate it for our audit records.\n"
+"                </t>\n"
+"\n"
+"                <br/><br/>\n"
+"                Attached you will find the detailed breakdown. Please provide your response using the buttons below:\n"
+"                <br/><br/>\n"
+"\n"
+"                <div style=\"margin: 16px 0px 16px 0px;\">\n"
+"                    <a t-att-href=\"object._get_share_url('agree')\" style=\"background-color: #28a745; padding: 10px 20px; text-decoration: none; color: #fff; border-radius: 5px; font-weight: bold;\">\n"
+"                        I AGREE\n"
+"                    </a>\n"
+"                    <a t-att-href=\"object._get_share_url('disagree')\" style=\"background-color: #dc3545; padding: 10px 20px; text-decoration: none; color: #fff; border-radius: 5px; font-weight: bold; margin-left: 10px;\">\n"
+"                        THERE IS AN ERROR\n"
+"                    </a>\n"
+"                </div>\n"
+"                <p>By clicking the buttons, your response will be automatically registered in our system.</p>\n"
+"                Best regards,\n"
+"                <br/>\n"
+"                <t t-out=\"object.audit_id.company_id.name\"/>\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:mail.template,body_html:l10n_es_irpf_reconciliation.email_template_irpf_quarterly_info
+msgid ""
+"<div style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                Hello <t t-out=\"object.partner_id.name or 'Administration Team'\"/>,\n"
+"                <br/><br/>\n"
+"                To facilitate the submission of your tax model this quarter, we inform you of the IRPF retentions\n"
+"                recorded in our invoices issued to you during the <strong><t t-out=\"object.period\"/> of the fiscal year <t t-out=\"object.audit_id.fiscal_year\"/></strong>.\n"
+"                <br/><br/>\n"
+"                <ul>\n"
+"                    <li>\n"
+"                        <strong>Total IRPF Withheld:</strong>\n"
+"                        <t t-out=\"format_amount(object.amount_odoo, object.currency_id)\"/>\n"
+"                    </li>\n"
+"                </ul>\n"
+"                Please check the attached PDF to see the breakdown by invoice.\n"
+"                <br/><br/>\n"
+"                Please verify that this amount matches your accounting records.\n"
+"                <br/><br/>\n"
+"                Best regards,\n"
+"                <br/>\n"
+"                <t t-out=\"object.audit_id.company_id.name\"/>\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.disagree_form
+msgid ""
+"<i class=\"fa fa-exclamation-triangle me-2\"/>\n"
+"                                        Report a Discrepancy"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_audit_line_form
+msgid "<span class=\"o_stat_text\">Invoices</span>"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.report_irpf_details_template
+msgid "<strong>Client:</strong>"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.report_irpf_details_template
+msgid "<strong>Fiscal Year:</strong>"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.report_irpf_details_template
+msgid "<strong>Total :</strong>"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__amount_aeat
+msgid "AEAT"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#. odoo-python
+#: code:addons/l10n_es_irpf_reconciliation/controllers/main.py:0
+msgid "ALERT: Client %s DISAGREES. Reason: %s"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__access_token
+msgid "Access Token"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__message_needaction
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__activity_ids
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__activity_exception_decoration
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__activity_state
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__activity_type_icon
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields.selection,name:l10n_es_irpf_reconciliation.selection__account_irpf_audit_line__agreement_status__agreed
+msgid "Agreed"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#. odoo-python
+#: code:addons/l10n_es_irpf_reconciliation/controllers/main.py:0
+msgid "Agreement received via portal."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields.selection,name:l10n_es_irpf_reconciliation.selection__account_irpf_audit__period__annual
+msgid "Annual (Model 190)"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_audit_form
+msgid "Are you sure you want to reset? This will delete all calculated lines."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__message_attachment_count
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__audit_id
+msgid "Audit"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__line_ids
+msgid "Audit Lines"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_import_wizard__audit_id
+msgid "Audit Reference"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.report_irpf_details_template
+msgid "Base Amount"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_import_wizard__data_file
+msgid "CSV File"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_audit_form
+msgid "Calculate Audit"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields.selection,name:l10n_es_irpf_reconciliation.selection__account_irpf_audit__state__calculated
+msgid "Calculated"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_import_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.disagree_form
+msgid "Cancel and return"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__partner_id
+msgid "Client"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#. odoo-python
+#: code:addons/l10n_es_irpf_reconciliation/controllers/main.py:0
+msgid "Client %s has confirmed they AGREE with the IRPF audit."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#. odoo-python
+#: code:addons/l10n_es_irpf_reconciliation/models/account_irpf_audit_line.py:0
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_audit_line_form
+msgid "Client Audit Details"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_audit_form
+msgid "Client Details"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__agreement_status
+msgid "Client Response"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.disagree_form
+msgid "Client:"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_audit_form
+msgid "Close Audit"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields.selection,name:l10n_es_irpf_reconciliation.selection__account_irpf_audit__state__done
+msgid "Closed"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__company_id
+msgid "Company"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#. odoo-python
+#: code:addons/l10n_es_irpf_reconciliation/models/account_irpf_audit_line.py:0
+msgid "Compose Email"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__create_uid
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__create_uid
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_import_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__create_date
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__create_date
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_import_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__currency_id
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.report_irpf_details_template
+msgid "Date"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.disagree_form
+msgid "Detailed Reason"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__difference
+msgid "Diff"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields.selection,name:l10n_es_irpf_reconciliation.selection__account_irpf_audit_line__agreement_status__disagreed
+msgid "Disagreed"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#. odoo-python
+#: code:addons/l10n_es_irpf_reconciliation/controllers/main.py:0
+msgid "Disagreement received. Reason: %s"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields.selection,name:l10n_es_irpf_reconciliation.selection__account_irpf_audit_line__state__discrepancy
+msgid "Discrepancy"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__disagreement_reason
+msgid "Discrepancy Reason"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__display_name
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__display_name
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_import_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields.selection,name:l10n_es_irpf_reconciliation.selection__account_irpf_audit__state__draft
+msgid "Draft"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.disagree_form
+msgid "E.g., Missing invoice F2025/001 or incorrect base amount..."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__failed_message_ids
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__failed_message_ids
+msgid "Failed Messages"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.response_thanks
+msgid "Feedback Received"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_import_wizard__filename
+msgid "Filename"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:mail.template,subject:l10n_es_irpf_reconciliation.email_template_irpf_quarterly_info
+msgid ""
+"Fiscal Information: IRPF Retentions {{ object.period }} of {{ "
+"object.audit_id.fiscal_year }} - {{ object.audit_id.company_id.name }}"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__fiscal_year
+msgid "Fiscal Year"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__message_follower_ids
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__message_partner_ids
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit__activity_type_icon
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__has_message
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__id
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__id
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_import_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.report_irpf_details_template
+msgid "IRPF Amount"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model,name:l10n_es_irpf_reconciliation.model_account_irpf_audit
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_audit_form
+msgid "IRPF Annual & Quarterly Audit"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.actions.act_window,name:l10n_es_irpf_reconciliation.action_account_irpf_audit
+msgid "IRPF Annual Audit"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.ui.menu,name:l10n_es_irpf_reconciliation.menu_irpf_audit_root
+msgid "IRPF Audit"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model,name:l10n_es_irpf_reconciliation.model_account_irpf_audit_line
+msgid "IRPF Audit Line"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:mail.template,name:l10n_es_irpf_reconciliation.email_template_irpf_annual_discrepancy
+msgid "IRPF Audit: Annual Summary & Discrepancy"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:mail.template,name:l10n_es_irpf_reconciliation.email_template_irpf_quarterly_info
+msgid "IRPF Audit: Quarterly Information Circular"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.actions.report,name:l10n_es_irpf_reconciliation.action_report_irpf_details
+msgid "IRPF Retention Details"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.report_irpf_details_template
+msgid "IRPF Retention Report"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__activity_exception_icon
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit__activity_exception_icon
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit__message_needaction
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit__message_has_error
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit__message_has_sms_error
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__message_has_error
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_import_wizard_form
+msgid "Import"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#. odoo-python
+#: code:addons/l10n_es_irpf_reconciliation/models/account_irpf_audit.py:0
+#: model:ir.actions.act_window,name:l10n_es_irpf_reconciliation.action_account_irpf_import_wizard
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_audit_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_import_wizard_form
+msgid "Import AEAT Data"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model,name:l10n_es_irpf_reconciliation.model_account_irpf_import_wizard
+msgid "Import AEAT Data Wizard"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#. odoo-python
+#: code:addons/l10n_es_irpf_reconciliation/wizard/account_irpf_import_wizard.py:0
+msgid "Import Successful"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields.selection,name:l10n_es_irpf_reconciliation.selection__account_irpf_audit_line__state__info
+msgid "Informative"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#. odoo-python
+#: code:addons/l10n_es_irpf_reconciliation/wizard/account_irpf_import_wizard.py:0
+msgid ""
+"Invalid file format. Please ensure it is a valid CSV file saved with UTF-8 "
+"encoding. Error: %s"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.report_irpf_details_template
+msgid "Invoice Number"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__message_is_follower
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__write_uid
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__write_uid
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_import_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__write_date
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__write_date
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_import_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields.selection,name:l10n_es_irpf_reconciliation.selection__account_irpf_audit_line__state__matched
+msgid "Matched"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__message_has_error
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__message_ids
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__my_activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__activity_calendar_event_id
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__activity_date_deadline
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__activity_summary
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__activity_type_id
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#. odoo-python
+#: code:addons/l10n_es_irpf_reconciliation/models/account_irpf_audit.py:0
+msgid "Notifications Queued"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields.selection,name:l10n_es_irpf_reconciliation.selection__account_irpf_audit_line__state__notified
+msgid "Notified"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_audit_form
+msgid "Notify Clients"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__message_needaction_counter
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__message_has_error_counter
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit__message_needaction_counter
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit__message_has_error_counter
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__amount_odoo
+msgid "Odoo"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_audit_form
+msgid "Open Details"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.response_thanks
+msgid ""
+"Our administration team will review the details and\n"
+"                                            contact you if necessary."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields.selection,name:l10n_es_irpf_reconciliation.selection__account_irpf_audit_line__agreement_status__pending
+msgid "Pending"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields.selection,name:l10n_es_irpf_reconciliation.selection__account_irpf_audit_line__state__pending
+msgid "Pending AEAT"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__period
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__period
+msgid "Period"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.disagree_form
+msgid ""
+"Please indicate the reason why you disagree with the recorded IRPF "
+"retentions:"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_import_wizard_form
+msgid ""
+"Please upload a CSV file with two columns: <strong>VAT (NIF)</strong> and <strong>Amount</strong>.\n"
+"                    Ensure the file uses a semicolon (;) as a separator."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#. odoo-python
+#: code:addons/l10n_es_irpf_reconciliation/wizard/account_irpf_import_wizard.py:0
+msgid "Please upload a CSV file."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_audit_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_audit_line_form
+msgid "Print Report"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__rating_ids
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__name
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__name
+msgid "Reference"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#. odoo-python
+#: code:addons/l10n_es_irpf_reconciliation/models/account_irpf_audit_line.py:0
+msgid "Related Invoices: %s"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_audit_form
+msgid "Reset to Draft"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__response_date
+msgid "Response Date"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__activity_user_id
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.response_thanks
+msgid "Return to Website"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__message_has_sms_error
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_audit_form
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_audit_line_form
+msgid "Send Email"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:mail.template,description:l10n_es_irpf_reconciliation.email_template_irpf_annual_discrepancy
+msgid ""
+"Send annual summary or discrepancy claim to clients based on AEAT data."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:mail.template,description:l10n_es_irpf_reconciliation.email_template_irpf_quarterly_info
+msgid ""
+"Send quarterly informative circular to clients regarding withheld IRPF."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__state
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__state
+msgid "Status"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit__activity_state
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.disagree_form
+msgid "Submit Disagreement"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.response_thanks
+msgid "Thank You!"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_audit_form
+msgid "Total AEAT"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_audit_form
+msgid "Total Diff"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.view_account_irpf_audit_form
+msgid "Total Odoo"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit__activity_exception_decoration
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_import_wizard__data_file
+msgid "Upload the AEAT CSV file. Columns must be: VAT, Amount"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.response_thanks
+msgid "We appreciate your confirmation for this fiscal period."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.response_thanks
+msgid "We have recorded your discrepancy report."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit__website_message_ids
+#: model:ir.model.fields,field_description:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit__website_message_ids
+#: model:ir.model.fields,help:l10n_es_irpf_reconciliation.field_account_irpf_audit_line__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model_terms:ir.ui.view,arch_db:l10n_es_irpf_reconciliation.response_thanks
+msgid "Your agreement has been successfully registered in our system."
+msgstr ""
+
+#. module: l10n_es_irpf_reconciliation
+#: model:mail.template,subject:l10n_es_irpf_reconciliation.email_template_irpf_annual_discrepancy
+msgid ""
+"{{ 'Important Notice: IRPF Fiscal Discrepancy' if object.difference != 0 "
+"else 'Annual IRPF Summary' }} for FY {{ object.audit_id.fiscal_year }} - {{ "
+"object.audit_id.company_id.name }}"
+msgstr ""

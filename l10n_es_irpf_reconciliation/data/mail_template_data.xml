@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+
+    <record id="email_template_irpf_quarterly_info" model="mail.template">
+        <field name="name">IRPF Audit: Quarterly Information Circular</field>
+        <field name="model_id" ref="l10n_es_irpf_reconciliation.model_account_irpf_audit_line"/>
+        <field name="subject">Fiscal Information: IRPF Retentions {{ object.period }} of {{ object.audit_id.fiscal_year }} - {{ object.audit_id.company_id.name }}</field>
+        <field name="email_from">{{ object.audit_id.company_id.email_formatted }}</field>
+        <field name="email_to">{{ object.partner_id.email_formatted }}</field>
+        <field name="lang">{{ object.partner_id.lang }}</field>
+        <field name="description">Send quarterly informative circular to clients regarding withheld IRPF.</field>
+        <field name="report_template_ids" eval="[(4, ref('l10n_es_irpf_reconciliation.action_report_irpf_details'))]"/>
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px; font-size: 13px;">
+                Hello <t t-out="object.partner_id.name or 'Administration Team'"/>,
+                <br/><br/>
+                To facilitate the submission of your tax model this quarter, we inform you of the IRPF retentions
+                recorded in our invoices issued to you during the <strong><t t-out="object.period"/> of the fiscal year <t t-out="object.audit_id.fiscal_year"/></strong>.
+                <br/><br/>
+                <ul>
+                    <li>
+                        <strong>Total IRPF Withheld:</strong>
+                        <t t-out="format_amount(object.amount_odoo, object.currency_id)"/>
+                    </li>
+                </ul>
+                Please check the attached PDF to see the breakdown by invoice.
+                <br/><br/>
+                Please verify that this amount matches your accounting records.
+                <br/><br/>
+                Best regards,
+                <br/>
+                <t t-out="object.audit_id.company_id.name"/>
+            </div>
+        </field>
+    </record>
+
+    <record id="email_template_irpf_annual_discrepancy" model="mail.template">
+        <field name="name">IRPF Audit: Annual Summary &amp; Discrepancy</field>
+        <field name="model_id" ref="l10n_es_irpf_reconciliation.model_account_irpf_audit_line"/>
+        <field name="subject">{{ 'Important Notice: IRPF Fiscal Discrepancy' if object.difference != 0 else 'Annual IRPF Summary' }} for FY {{ object.audit_id.fiscal_year }} - {{ object.audit_id.company_id.name }}</field>
+        <field name="email_from">{{ object.audit_id.company_id.email_formatted }}</field>
+        <field name="email_to">{{ object.partner_id.email_formatted }}</field>
+        <field name="description">Send annual summary or discrepancy claim to clients based on AEAT data.</field>
+        <field name="report_template_ids" eval="[(4, ref('l10n_es_irpf_reconciliation.action_report_irpf_details'))]"/>
+        <field name="body_html" type="html">
+            <div style="margin: 0px; padding: 0px; font-size: 13px;">
+                Hello <t t-out="object.partner_id.name or 'Administration Team'"/>,
+                <br/><br/>
+
+                <t t-if="object.difference != 0">
+                    When cross-referencing the fiscal data for the <strong>fiscal year <t t-out="object.audit_id.fiscal_year"/></strong> with the Tax Agency (AEAT), we detected a discrepancy in the retentions declared in our favor.
+                    <br/><br/>
+                    According to our immutable billing records, the amounts are:
+                    <br/>
+                    <ul>
+                        <li>
+                            <strong>Withheld IRPF (Odoo):</strong>
+                            <t t-out="format_amount(object.amount_odoo, object.currency_id)"/>
+                        </li>
+                        <li>
+                            <strong>Declared IRPF (AEAT):</strong>
+                            <t t-out="format_amount(object.amount_aeat, object.currency_id)"/>
+                        </li>
+                        <li>
+                            <strong style="color: red;">Difference to regularize:</strong>
+                            <t t-out="format_amount(object.difference, object.currency_id)"/>
+                        </li>
+                    </ul>
+                    We need your advisory team to review this mismatch and file a complementary declaration.
+                </t>
+
+                <t t-else="">
+                    As part of our annual fiscal closing procedures for the <strong>fiscal year <t t-out="object.audit_id.fiscal_year"/></strong>, we are contacting you to request the formal confirmation of the IRPF retentions.
+                    <br/><br/>
+                    According to our records, the amounts perfectly match the data declared to the Tax Agency (AEAT):
+                    <br/>
+                    <ul>
+                        <li>
+                            <strong>Total IRPF Withheld:</strong>
+                            <t t-out="format_amount(object.amount_odoo, object.currency_id)"/>
+                        </li>
+                    </ul>
+                    Everything seems to be correct, but we kindly ask you to formally validate it for our audit records.
+                </t>
+
+                <br/><br/>
+                Attached you will find the detailed breakdown. Please provide your response using the buttons below:
+                <br/><br/>
+
+                <div style="margin: 16px 0px 16px 0px;">
+                    <a t-att-href="object._get_share_url('agree')" style="background-color: #28a745; padding: 10px 20px; text-decoration: none; color: #fff; border-radius: 5px; font-weight: bold;">
+                        I AGREE
+                    </a>
+                    <a t-att-href="object._get_share_url('disagree')" style="background-color: #dc3545; padding: 10px 20px; text-decoration: none; color: #fff; border-radius: 5px; font-weight: bold; margin-left: 10px;">
+                        THERE IS AN ERROR
+                    </a>
+                </div>
+                <p>By clicking the buttons, your response will be automatically registered in our system.</p>
+                Best regards,
+                <br/>
+                <t t-out="object.audit_id.company_id.name"/>
+            </div>
+        </field>
+    </record>
+
+</odoo>

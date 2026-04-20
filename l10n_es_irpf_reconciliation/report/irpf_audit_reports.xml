@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="action_report_irpf_details" model="ir.actions.report">
+        <field name="name">IRPF Retention Details</field>
+        <field name="model">account.irpf.audit.line</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">l10n_es_irpf_reconciliation.report_irpf_details_template</field>
+        <field name="report_file">l10n_es_irpf_reconciliation.report_irpf_details_template</field>
+        <field name="print_report_name">'IRPF_Details_%s_%s' % (object.partner_id.name, object.audit_id.fiscal_year)</field>
+        <field name="binding_model_id" ref="model_account_irpf_audit_line"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_irpf_details_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>IRPF Retention Report</h2>
+                        <div class="row mt32 mb32">
+                            <div class="col-6">
+                                <strong>Client:</strong> <span t-field="o.partner_id.name"/><br/>
+                                <strong>VAT:</strong> <span t-field="o.partner_id.vat"/>
+                            </div>
+                            <div class="col-6 text-end">
+                                <strong>Fiscal Year:</strong> <span t-field="o.audit_id.fiscal_year"/><br/>
+                                <strong>Period:</strong> <span t-field="o.audit_id.period"/>
+                            </div>
+                        </div>
+
+                        <table class="table table-sm o_main_table mt48">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Invoice Number</th>
+                                    <th class="text-end">Base Amount</th>
+                                    <th class="text-end">IRPF Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-set="lines" t-value="o._get_invoice_details()"/>
+                                <t t-foreach="lines" t-as="l">
+                                    <tr>
+                                        <td><span t-field="l.date"/></td>
+                                        <td><span t-field="l.move_id.name"/></td>
+                                        <td class="text-end">
+                                            <span t-field="l.move_id.amount_untaxed" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                        </td>
+                                        <td class="text-end">
+                                            <span t-field="l.balance" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <div class="row justify-content-end">
+                            <div class="col-4">
+                                <table class="table table-sm">
+                                    <tr class="border-black o_total">
+                                        <td><strong>Total :</strong></td>
+                                        <td class="text-end">
+                                            <span t-field="o.amount_odoo" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
