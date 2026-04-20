@@ -8,11 +8,7 @@ Spanish Autonomo: Partial Deducibility Management
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 
-.. |badge2| image:: https://img.shields.io/badge/github-OCA%2Fl10n--spain-lightgray.svg?logo=github
-    :target: https://github.com/OCA/l10n-spain/tree/18.0/l10n_es_autonomo
-    :alt: OCA/l10n-spain
-
-|badge1| |badge2|
+|badge1|
 
 Este módulo permite gestionar la deducibilidad parcial del IVA y del Gasto (IRPF) para autónomos en España,
 especialmente útil para bienes afectos parcialmente a la actividad económica (como vehículos al 50% o suministros del hogar al 30%).
@@ -62,23 +58,13 @@ Instrucciones de uso en español:
    El sistema está diseñado para que el **Modelo 303** y el **Libro de Registro de IVA** tomen solo la parte
    deducible, mientras que el informe de **Pérdidas y Ganancias** refleje el gasto real incrementado.
 
-Changelog
-=========
-
-18.0.1.0.0 (2026-04-12)
------------------------
-
-* Initial version for Odoo 18.0.
-* Partial VAT and Expense reclassification.
-* Fiscal summary banner and audit tab.
-
 Credits
 =======
 
 Authors
 -------
 
-* Nosotros
+* GutierrezTi
 
 Contributors
 ------------
@@ -88,12 +74,6 @@ Contributors
 Maintainer
 ----------
 
-.. image:: https://odoo-community.org/logo.png
-   :alt: Odoo Community Association
-   :target: https://odoo-community.org
+Este módulo es mantenido por GutierrezTi.
 
-This module is maintained by the OCA.
-
-OCA, or the Odoo Community Association, is a nonprofit organization whose
-mission is to support the collaborative development of Odoo features and
-promote its widespread use.
+Para más información, visita https://gutierrezti.es
